@@ -1,0 +1,10 @@
+select "minlen", "datarowsize", "maxlen"
+#foreach ($table in $tables)
+-- ---------------------------------------------------------------------------------------------
+select i.minlen, t.datarowsize, i.maxlen, "$table"
+from sysindexes i, systabstats t
+ where i.id = object_id("$table")
+   and i.indid in (0, 1)
+   and i.id = t.id 
+-- ---------------------------------------------------------------------------------------------
+#end

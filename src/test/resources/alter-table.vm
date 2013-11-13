@@ -1,0 +1,14 @@
+#foreach ($table in $tables)
+-- ---------------------------------------------------------------------------------------------
+select 'Start Date', getdate(),'$table'
+go
+-- -------------------------------
+alter table $table lock datarows
+
+select 'Finished [$table] at ' + convert(char(30), getdate())
+go
+-- -------------------------------
+select 'End Date', getdate(),'$table'
+go
+-- ---------------------------------------------------------------------------------------------
+#end

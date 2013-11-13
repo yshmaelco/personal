@@ -1,0 +1,124 @@
+#foreach ($table in $tables)
+-- ---------------------------------------------------------------------------------------------
+select 'Start Date', getdate(),'$table'
+go
+
+-- ----------------------------------------------------
+--
+-- Step 1: Truncate table
+--
+-- ----------------------------------------------------
+truncate table $targetDB..$table
+go
+
+-- ----------------------------------------------------
+--
+-- Step 2: Copy data
+--
+-- ----------------------------------------------------
+
+-- This will contain the range of id that will be query per batch
+select 'checking temp_range_ids if exist',object_id('#temp_range_ids')
+IF NULLIF(object_id('#temp_range_ids'), 0) IS NOT NULL DROP TABLE #temp_range_ids    
+go
+
+select 'checking temp_range_ids if exist (after dropping)',object_id('#temp_range_ids')
+create table #temp_range_ids(id_from numeric, id_to numeric)
+
+
+-- check if tempd_ids table exist.
+select 'checking temp_ids if exist',object_id('#temp_ids')
+IF NULLIF(object_id('#temp_ids'), 0) IS NOT NULL DROP TABLE #temp_ids        
+go 
+
+select 'checking temp_range_ids if exist (after dropping)',object_id('#temp_range_ids')
+
+-- ----------------------
+
+declare @id numeric
+declare @lower_id numeric
+declare @upper_id numeric
+declare @max_id numeric
+declare @count numeric
+
+
+-- Get initial vlues
+select @id = 0
+select @max_id = max(id) from $sourceDB..$table
+select @count = count(id) from $sourceDB..$table
+
+select 'Max id value:',@max_id, 'Table count:',@count
+
+
+while (select @id) <= @max_id
+begin
+
+    select @lower_id = @id
+    
+    -- create temp table to put all ids per batch
+    create table #temp_ids(id numeric)
+    insert into #temp_ids SELECT top 200000 id FROM $sourceDB..$table where id >= @lower_id order by id
+    select @upper_id = max(id) from #temp_ids
+    drop table #temp_ids
+    
+    
+    -- put range values in temp_range_ids table.  Later on, it will be join for insert.
+    insert into #temp_range_ids values (@lower_id, @upper_id )
+    
+    
+	-- increment id
+	select @id = @upper_id + 1    
+end
+
+
+
+-- ------------------------------------- 
+-- Start copying data
+-- ------------------------------------- 
+
+while (select count(*) from #temp_range_ids) <> 0
+begin
+
+    begin transaction
+    
+    declare @from_id numeric
+    
+    -- Get min value of id
+    select @from_id = min(id_from) from #temp_range_ids
+    
+    --select id 
+    INSERT INTO $targetDB..$table 
+    select t1.*
+    from $sourceDB..$table t1
+    join #temp_range_ids t2 on t1.id between t2.id_from and t2.id_to
+                            and t2.id_from = @from_id
+    
+    -- delete range after successful copy
+    delete from #temp_range_ids where id_from = @from_id
+    
+    commit transaction
+    
+end
+
+
+-- ----------------------------------------------------
+--
+-- Step 3: Verification
+--
+-- ----------------------------------------------------
+
+select 'table','$targetDB','compliance','status'
+union
+select '$table'
+    ,convert(varchar,(select count(*) from $targetDB..$table))
+    ,convert(varchar,(select count(*) from $sourceDB..$table))
+    ,case 
+        when (select count(*) from $targetDB..$table) <> (select count(*) from $sourceDB..$table) then 'NOT EQUAL' 
+        else '' 
+        end
+ 
+-- -------------------------------
+select 'End Date', getdate(),'$table'
+go
+-- ---------------------------------------------------------------------------------------------
+#end

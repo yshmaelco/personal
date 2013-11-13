@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/mvc
+  	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	">
+	
+	<util:map id="ba_sp_actimize_bcp">
+		<entry key="File Specification">
+	    	<util:list>
+			    <value>Actimize_BCP</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Algorithms">
+	    	<util:list>
+			    <value>Accuity Token</value>
+			    <value>Fuzzy — Threshold (90)</value>
+			</util:list>
+	    </entry>
+	    <entry key="Risk Scorecard">
+	    	<util:list>
+			    <value>SC2</value>
+			</util:list>
+	    </entry>
+	    <entry key="Compliance Link Options">
+	    	<util:list>
+			    <value>Use False Positive Reduction Rules: Yes</value>
+			    <value>Use Good File: Yes</value>
+			    <value>Screen against Add/Change Lists only: No</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Options">
+	    	<util:list>
+			    <value>Match on Screening Fields only: Yes</value>
+			    <value>Remove Middle Initial: Yes</value>
+			    <value>Ignore Vessels: Yes</value>
+			</util:list>
+	    </entry>
+	    <entry key="Custom Dictionary">
+	    	<util:list>
+			    <value>None</value>
+			</util:list>
+	    </entry>
+	    <entry key="Character Mapping File">
+	    	<util:list>
+			    <value>Special Characters File</value>
+			</util:list>
+	    </entry>
+	    <entry key="Filter Versions">
+	    	<util:list>
+			    <value>Accuity's OFAC List</value>
+				<value>Accuity OFAC Enhancements</value>
+				<value>Arab League List</value>
+				<value>AU</value>
+				<value>BELGIUM</value>
+				<value>BISN</value>
+				<value>BofE</value>
+				<value>CANADIAN ECONOMIC SANCTIONED COUNTRIES LIST</value>
+				<value>CANADIAN ECONOMIC UN SANCTIONS LIST</value>
+				<value>CHINESE MINISTRY</value>
+				<value>EU</value>
+				<value>European Union Enhancements List</value>
+				<value>HK</value>
+				<value>HM Treasury Financial Sanctions Country Regimes</value>
+				<value>HMT Enhancement List</value>
+				<value>INDIAN MINISTRY</value>
+				<value>Iran Sanctions Act (ISA) List</value>
+				<value>Japan - Ministry of Finance</value>
+				<value>New Zealand Police Designated Terrorist List</value>
+				<value>OFAC Part 561 Enhancements List</value>
+				<value>OFAC Part 561 List</value>
+				<value>OFAC Sanctions Country Regimes List</value>
+				<value>OSFI</value>
+				<value>Sanctioned Airport and Seaport List</value>
+				<value>SAUDI ARABIA</value>
+				<value>SECO</value>
+				<value>SGP</value>
+				<value>Thailand AMLO Counter-Terrorism Financing Act List</value>
+				<value>UK HOME OFFICE</value>
+				<value>UN</value>
+				<value>United Nations Enhancements List</value>
+				<value>Vessel Company Enhancements List</value>
+				<value>Vessel Enhancements List</value>
+			</util:list>
+	    </entry>
+	</util:map>
+	    
+	    
+	<util:map id="ba_sp_vessels">
+		<entry key="File Specification">
+	    	<util:list>
+			    <value>GlobeVessels</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Algorithms">
+	    	<util:list>
+			    <value>Accuity Token</value>
+			    <value>Fuzzy — Threshold (97)</value>
+			</util:list>
+	    </entry>
+	    <entry key="Risk Scorecard">
+	    	<util:list>
+			    <value>SC1</value>
+			</util:list>
+	    </entry>
+	    <entry key="Compliance Link Options">
+	    	<util:list>
+			    <value>Use False Positive Reduction Rules: Yes</value>
+			    <value>Use Good File: Yes</value>
+			    <value>Screen against Add/Change Lists only: No</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Options">
+	    	<util:list>
+			    <value>Match on Screening Fields only: Yes</value>
+			    <value>Remove Middle Initial: Yes</value>
+			    <value>Ignore Vessels: No</value>			    
+			</util:list>
+	    </entry>
+	    <entry key="Custom Dictionary">
+	    	<util:list>
+			    <value>None</value>
+			</util:list>
+	    </entry>
+	    <entry key="Character Mapping File">
+	    	<util:list>
+			    <value>Special Characters File</value>
+			</util:list>
+	    </entry>
+	    <entry key="Filter Versions">
+	    	<util:list>
+				<value>Accuity OFAC Enhancements</value>
+				<value>Vessel Company Enhancements List</value>
+				<value>Vessel Enhancements List</value>
+			</util:list>
+	    </entry>
+	    
+	</util:map>
+	
+	
+	
+	<util:map id="ba_sp_customers_sanctions_only">
+		<entry key="File Specification">
+	    	<util:list>
+			    <value>GlobeClientCRE_Temp</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Algorithms">
+	    	<util:list>
+			    <value>Accuity Token</value>
+			    <value>Fuzzy — Threshold (97)</value>
+			</util:list>
+	    </entry>
+	    <entry key="Risk Scorecard">
+	    	<util:list>
+			    <value>SC1</value>
+			</util:list>
+	    </entry>
+	    <entry key="Compliance Link Options">
+	    	<util:list>
+			    <value>Use False Positive Reduction Rules: Yes</value>
+			    <value>Use Good File: Yes</value>
+			    <value>Screen against Add/Change Lists only: No</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Options">
+	    	<util:list>
+			    <value>Match on Screening Fields only: Yes</value>
+			    <value>Remove Middle Initial: Yes</value>
+			    <value>Ignore Vessels: Yes</value>			    
+			</util:list>
+	    </entry>
+	    <entry key="Custom Dictionary">
+	    	<util:list>
+			    <value>None</value>
+			</util:list>
+	    </entry>
+	    <entry key="Character Mapping File">
+	    	<util:list>
+			    <value>Special Characters File</value>
+			</util:list>
+	    </entry>
+	    <entry key="Filter Versions">
+	    	<util:list>
+		    	<value>Accuity's OFAC List</value>
+				<value>Accuity OFAC Enhancements</value>
+				<value>311</value>
+				<value>Arab League List</value>
+				<value>AU</value>
+				<value>AUSTRIAN CENTRAL BANK</value>
+				
+				<value>BELGIUM</value>
+				<value>BIS</value>
+				<value>BISN</value>
+				<value>BofE</value>
+				<value>CANADIAN ECONOMIC SANCTIONED COUNTRIES LIST</value>
+				<value>CANADIAN ECONOMIC UN SANCTIONS LIST</value>
+				<value>CHINESE MINISTRY</value>
+				<value>DTC</value>
+				<value>EU</value>
+				<value>European Union Enhancements List</value>
+				<value>FRENCH LIST</value>
+				<value>HK</value>
+				<value>HM Treasury Financial Sanctions Country Regimes</value>
+				<value>HMT Enhancement List</value>
+				<value>INDIAN MINISTRY</value>
+				<value>Iran Sanctions Act (ISA) List</value>
+				<value>Japan - Ministry of Finance</value>
+				<value>New Zealand Police Designated Terrorist List</value>
+				<value>OFAC Part 561 Enhancements List</value>
+				<value>OFAC Part 561 List</value>
+				<value>OFAC Sanctions Country Regimes List</value>
+				<value>OSFI</value>
+				<value>Sanctioned Airport and Seaport List</value>
+				<value>SAUDI ARABIA</value>
+				<value>SECO</value>
+				<value>SGP</value>
+				<value>Thailand AMLO Counter-Terrorism Financing Act List</value>
+				<value>UK HOME OFFICE</value>
+				<value>UN</value>
+				<value>United Nations Enhancements List</value>
+				<value>WORLD BANK</value>
+			</util:list>
+	    </entry>
+	</util:map>
+	
+	
+	
+	<util:map id="ba_sp_customers_pep_only">
+		<entry key="File Specification">
+	    	<util:list>
+			    <value>GlobeClientCRE_Temp</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Algorithms">
+	    	<util:list>
+			    <value>Accuity Token</value>
+			</util:list>
+	    </entry>
+	    <entry key="Risk Scorecard">
+	    	<util:list>
+			    <value>SC1</value>
+			</util:list>
+	    </entry>
+	    <entry key="Compliance Link Options">
+	    	<util:list>
+			    <value>Use False Positive Reduction Rules: Yes</value>
+			    <value>Use Good File: Yes</value>
+			    <value>Screen against Add/Change Lists only: No</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Options">
+	    	<util:list>
+			    <value>Match on Screening Fields only: Yes</value>
+			    <value>Remove Middle Initial: Yes</value>
+			    <value>Ignore Vessels: Yes</value>			    
+			</util:list>
+	    </entry>
+	    <entry key="Custom Dictionary">
+	    	<util:list>
+			    <value>None</value>
+			</util:list>
+	    </entry>
+	    <entry key="Character Mapping File">
+	    	<util:list>
+			    <value>Special Characters File</value>
+			</util:list>
+	    </entry>
+	    <entry key="Filter Versions">
+	    	<util:list>
+		    	<value>US PEP List powered by WorldCompliance</value>
+				<value>PEP List powered by WorldCompliance</value>	
+			</util:list>
+	    </entry>
+	</util:map>
+	
+	
+	<util:map id="ba_sp_customers_bfs_sanctions_only">
+		<entry key="File Specification">
+	    	<util:list>
+			    <value>Siebel</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Algorithms">
+	    	<util:list>
+			    <value>Accuity Token</value>
+			    <value>Fuzzy — Threshold (95)</value>
+			</util:list>
+	    </entry>
+	    <entry key="Risk Scorecard">
+	    	<util:list>
+			    <value>SC2</value>
+			</util:list>
+	    </entry>
+	    <entry key="Compliance Link Options">
+	    	<util:list>
+			    <value>Use False Positive Reduction Rules: Yes</value>
+			    <value>Use Good File: Yes</value>
+			    <value>Screen against Add/Change Lists only: No</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Options">
+	    	<util:list>
+			    <value>Match on Screening Fields only: Yes</value>
+			    <value>Remove Middle Initial: Yes</value>
+			    <value>Ignore Vessels: Yes</value>			    
+			</util:list>
+	    </entry>
+	    <entry key="Custom Dictionary">
+	    	<util:list>
+			    <value>None</value>
+			</util:list>
+	    </entry>
+	    <entry key="Character Mapping File">
+	    	<util:list>
+			    <value>Special Characters File</value>
+			</util:list>
+	    </entry>
+	    <entry key="Filter Versions">
+	    	<util:list>
+		    	<value>Accuity's OFAC List</value>
+				<value>Accuity OFAC Enhancements</value>
+				<value>311</value>
+				<value>AU</value>
+				<value>AUSTRIAN CENTRAL BANK</value>
+				<value>Arab League List</value>
+				<value>BELGIUM</value>
+				<value>BISN</value>
+				<value>BofE</value>
+				<value>CANADIAN ECONOMIC SANCTIONED COUNTRIES LIST</value>
+				<value>CANADIAN ECONOMIC UN SANCTIONS LIST</value>
+				<value>EU</value>
+				<value>European Union Enhancements List</value>
+				<value>FRENCH LIST</value>
+				<value>HK</value>
+				<value>HM Treasury Financial Sanctions Country Regimes</value>
+				<value>HMT Enhancement List</value>
+				<value>INDIAN MINISTRY</value>
+				<value>Iran Sanctions Act (ISA) List</value>
+				<value>Japan - Ministry of Finance</value>
+				<value>New Zealand Police Designated Terrorist List</value>
+				<value>OFAC Part 561 Enhancements List</value>
+				<value>OFAC Part 561 List</value>
+				<value>OFAC Sanctions Country Regimes List</value>
+				<value>OSFI</value>
+				<value>SECO</value>
+				<value>SGP</value>
+				<value>Sanctioned Airport and Seaport List</value>
+				<value>Thailand AMLO Counter-Terrorism Financing Act List</value>
+				<value>UK HOME OFFICE</value>
+				<value>UN</value>
+				<value>United Nations Enhancements List</value>
+			</util:list>
+	    </entry>
+	</util:map>
+	
+	
+	
+	
+	<util:map id="ba_sp_customers_bfs_pep_only">
+		<entry key="File Specification">
+	    	<util:list>
+			    <value>Siebel</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Algorithms">
+	    	<util:list>
+			    <value>Accuity Token</value>
+			</util:list>
+	    </entry>
+	    <entry key="Risk Scorecard">
+	    	<util:list>
+			    <value>SC2</value>
+			</util:list>
+	    </entry>
+	    <entry key="Compliance Link Options">
+	    	<util:list>
+			    <value>Use False Positive Reduction Rules: Yes</value>
+			    <value>Use Good File: Yes</value>
+			    <value>Screen against Add/Change Lists only: No</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Options">
+	    	<util:list>
+			    <value>Match on Screening Fields only: Yes</value>
+			    <value>Remove Middle Initial: Yes</value>
+			    <value>Ignore Vessels: Yes</value>			    
+			</util:list>
+	    </entry>
+	    <entry key="Custom Dictionary">
+	    	<util:list>
+			    <value>None</value>
+			</util:list>
+	    </entry>
+	    <entry key="Character Mapping File">
+	    	<util:list>
+			    <value>Special Characters File</value>
+			</util:list>
+	    </entry>
+	    <entry key="Filter Versions">
+	    	<util:list>
+	    		<value>US PEP List powered by WorldCompliance</value>
+				<value>PEP List powered by WorldCompliance</value>
+			</util:list>
+	    </entry>
+	</util:map>
+	
+	
+	
+	
+	<util:map id="ba_sp_vendors_sanctions_only">
+	    <entry key="Screening Algorithms">
+	    	<util:list>
+			    <value>Accuity Token</value>
+			</util:list>
+	    </entry>
+	    <entry key="Risk Scorecard">
+	    	<util:list>
+			    <value>SC2</value>
+			</util:list>
+	    </entry>
+	    <entry key="Compliance Link Options">
+	    	<util:list>
+			    <value>Use False Positive Reduction Rules: Yes</value>
+			    <value>Use Good File: Yes</value>
+			    <value>Screen against Add/Change Lists only: No</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Options">
+	    	<util:list>
+			    <value>Match on Screening Fields only: Yes</value>
+			    <value>Remove Middle Initial: Yes</value>
+			    <value>Ignore Vessels: Yes</value>			    
+			</util:list>
+	    </entry>
+	    <entry key="Custom Dictionary">
+	    	<util:list>
+			    <value>None</value>
+			</util:list>
+	    </entry>
+	    <entry key="Character Mapping File">
+	    	<util:list>
+			    <value>Special Characters File</value>
+			</util:list>
+	    </entry>
+	    <entry key="Filter Versions">
+	    	<util:list>
+	    		<value>Thailand AMLO Counter-Terrorism Financing Act List</value>
+			</util:list>
+	    </entry>
+	</util:map>
+	
+	
+	
+	
+	<util:map id="ba_sp_customers_edd_only">
+		<entry key="File Specification">
+	    	<util:list>
+			    <value>GlobeClientCRE</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Algorithms">
+	    	<util:list>
+			    <value>Accuity Token</value>
+			</util:list>
+	    </entry>
+	    <entry key="Risk Scorecard">
+	    	<util:list>
+			    <value>SC1</value>
+			</util:list>
+	    </entry>
+	    <entry key="Compliance Link Options">
+	    	<util:list>
+			    <value>Use False Positive Reduction Rules: Yes</value>
+			    <value>Use Good File: Yes</value>
+			    <value>Screen against Add/Change Lists only: No</value>
+			</util:list>
+	    </entry>
+	    <entry key="Screening Options">
+	    	<util:list>
+			    <value>Match on Screening Fields only: Yes</value>
+			    <value>Remove Middle Initial: Yes</value>
+			    <value>Ignore Vessels: Yes</value>			    
+			</util:list>
+	    </entry>
+	    <entry key="Custom Dictionary">
+	    	<util:list>
+			    <value>None</value>
+			</util:list>
+	    </entry>
+	    <entry key="Character Mapping File">
+	    	<util:list>
+			    <value>Special Characters File</value>
+			</util:list>
+	    </entry>
+	    <entry key="Filter Versions">
+	    	<util:list>
+	    		<value>Burmese Enhanced Due Diligence - OFAC List</value>
+				<value>CBI INDIA</value>
+				<value>CBI WN</value>
+				<value>CWL</value>
+				<value>EDD Asia Pacific Australia</value>
+				<value>EDD Canada</value>
+				<value>EDD Europe Middle East Africa</value>
+				<value>EDD International</value>
+				<value>EDD South America Central America</value>
+				<value>EDD United Kingdom</value>
+				<value>EDD United States Agencies</value>
+				<value>EDD United States State Legal</value>
+				<value>INTERPOL</value>
+				<value>LUXEMBOURG CSSF</value>
+				<value>SOUTH AFRICAN POLICE WANTED</value>
+				<value>Syria Enhanced Due Diligence List</value>
+				<value>UN CHILDREN AND ARMED CONFLICT LIST</value>
+			</util:list>
+	    </entry>
+	</util:map>
+    
+</beans>
+
+<!-- 
+<value>Accuity's OFAC List</value>
+<value>Accuity OFAC Enhancements</value>
+<value>US PEP List powered by WorldCompliance</value>
+<value>PEP List powered by WorldCompliance</value>
+<value>311</value>
+<value>ARG</value>
+<value>AU</value>
+<value>AUSTRIAN CENTRAL BANK</value>
+<value>Arab League List</value>
+<value>BANK OF ITALY UNAUTHORIZED FINANCIAL ACTIVITY LIST</value>
+<value>BELGIUM</value>
+<value>BIS</value>
+<value>BISN</value>
+<value>BofE</value>
+<value>Burmese Enhanced Due Diligence - OFAC List</value>
+<value>CANADIAN ECONOMIC SANCTIONED COUNTRIES LIST</value>
+<value>CANADIAN ECONOMIC UN SANCTIONS LIST</value>
+<value>CBI INDIA</value>
+<value>CBI WN</value>
+<value>CBS OFFSHORE BANKS</value>
+<value>CHINESE MINISTRY</value>
+<value>CWL</value>
+<value>Central Bank of the Bahamas - CWL</value>
+<value>Chinese Ministry List (zh)</value>
+<value>DTC</value>
+<value>DUTCH BANK</value>
+<value>EDD Asia Pacific Australia</value>
+<value>EDD Canada</value>
+<value>EDD Europe Middle East Africa</value>
+<value>EDD International</value>
+<value>EDD South America Central America</value>
+<value>EDD United Kingdom</value>
+<value>EDD United States Agencies</value>
+<value>EDD United States State Legal</value>
+<value>EU</value>
+<value>EXPORT CONTROL ORGANISATION UK - IRAN LIST</value>
+<value>Egypt Financial Supervisory Authority</value>
+<value>European Union Enhancements List</value>
+<value>FATF Deficient Jurisdictions List</value>
+<value>FBI</value>
+<value>FRENCH LIST</value>
+<value>GO</value>
+<value>GWL Companies List (zh)</value>
+<value>HK</value>
+<value>HM Treasury Financial Sanctions Country Regimes</value>
+<value>HMT Enhancement List</value>
+<value>INDIAN MINISTRY</value>
+<value>INTERPOL</value>
+<value>INTL ARMS TRAFFICKERS</value>
+<value>ISRAELI MINISTRY OF DEFENSE TERROR LIST</value>
+<value>Iran Sanctions Act (ISA) List</value>
+<value>Japan - Ministry of Finance</value>
+<value>LUXEMBOURG CSSF</value>
+<value>MAURITIUS FSC REVOCATIONS</value>
+<value>MSB LIST</value>
+<value>Mexican Administrative Sanctions</value>
+<value>NEPAL CREDIT INFORMATION BUREAU</value>
+<value>New Zealand Police Designated Terrorist List</value>
+<value>OCC</value>
+<value>OCC Counterfeit List</value>
+<value>OFAC Part 561 Enhancements List</value>
+<value>OFAC Part 561 List</value>
+<value>OFAC Sanctions Country Regimes List</value>
+<value>OSFI</value>
+<value>PEP Companies List (zh)</value>
+<value>PEP Individuals (zh)</value>
+<value>RUSSIAN ROSFINMONITORING PUBLIC LIST</value>
+<value>SAUDI ARABIA</value>
+<value>SECO</value>
+<value>SGP</value>
+<value>SOUTH AFRICAN POLICE WANTED</value>
+<value>SPAIN</value>
+<value>STATEMSB</value>
+<value>Sanctioned Airport and Seaport List</value>
+<value>Slovakian List</value>
+<value>Syria Enhanced Due Diligence List</value>
+<value>TAIWAN LIST</value>
+<value>TEL</value>
+<value>Thailand AMLO Counter-Terrorism Financing Act List</value>
+<value>UK HOME OFFICE</value>
+<value>UKRAINE FINANCIAL MONITORING</value>
+<value>UN</value>
+<value>UN CHILDREN AND ARMED CONFLICT LIST</value>
+<value>UN Travel Restrictions</value>
+<value>US Government Officials</value>
+<value>USM</value>
+<value>United Nations Enhancements List</value>
+<value>Vessel Company Enhancements List</value>
+<value>Vessel Enhancements List</value>
+<value>WORLD BANK</value>
+<value>314a</value>
+
+ -->

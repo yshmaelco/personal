@@ -1,0 +1,4 @@
+#foreach ($table in $tables)
+sp_spaceused $table
+go
+#end
