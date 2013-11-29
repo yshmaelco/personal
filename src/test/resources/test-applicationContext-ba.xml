@@ -14,12 +14,163 @@
 	http://www.springframework.org/schema/util/spring-util-3.0.xsd
 	">
 	
+	<util:map id="feedFilesMapping">
+		
+		<entry key="MCAF_InfoLease_Monthly_AU_Customer_PEP_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>InfoLease_AU</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_pep_only" />			    
+			</util:map>
+		</entry>
+		<entry key="MCAF_InfoLease_Monthly_AU_Customer_Sanctions_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>InfoLease_AU</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_sanctions_only" />			    
+			</util:map>
+		</entry>
+		<entry key="MCAF_InfoLease_Monthly_UK_Customer_PEP_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>InfoLease_UK</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_pep_only" />			    
+			</util:map>
+		</entry>
+		<entry key="MCAF_InfoLease_Monthly_UK_Customer_Sanctions_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>InfoLease_UK</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_sanctions_only" />			    
+			</util:map>
+		</entry>
+		<entry key="GlobeClientCRE_Customer_PEP_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>GlobeClientCRE_Temp</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_pep_only" />			    
+			</util:map>
+		</entry>
+		<entry key="GlobeClientCRE_Customer_Sanctions_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>GlobeClientCRE_Temp</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_sanctions_only" />			    
+			</util:map>
+		</entry>
+		
+		<entry key="TCG_CAS_GT_Customer_PEP_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>Central Customer FICC Screening</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_pep_only" />			    
+			</util:map>
+		</entry>
+		<entry key="TCG_CAS_GT_Customer_Sanctions_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>Central Customer FICC Screening</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_sanctions_only" />			    
+			</util:map>
+		</entry>
+		<entry key="MCAF_MacLease_Daily_Customer_PEP_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>MacLeasing</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_pep_only" />			    
+			</util:map>
+		</entry>
+		<entry key="MCAF_MacLease_Daily_Customer_Sanctions_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>MacLeasing</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_sanctions_only" />			    
+			</util:map>
+		</entry>
+		
+		
+		<entry key="FSG_Daily_Customers_BFS_PEP_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>Siebel</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_bfs_pep_only" />			    
+			</util:map>
+		</entry>
+		<entry key="FSG_Daily_Customers_BFS_Sanctions_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>Siebel</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_bfs_sanctions_only" />			    
+			</util:map>
+		</entry>
+		
+		<entry key="Rewash_Extract_Customers_BFS_PEP_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>Siebel</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_bfs_pep_only" />			    
+			</util:map>
+		</entry>
+		<entry key="Rewash_Extract_Customers_BFS_Sanctions_Only">
+			<util:map>
+				<entry key="File Specification">
+			    	<util:list>
+					    <value>Siebel</value>
+					</util:list>
+			    </entry>
+			    <entry key="Screening Profile" value-ref="ba_sp_customers_bfs_sanctions_only" />			    
+			</util:map>
+		</entry>
+	</util:map>
+	
+	<!-- ****************************** Screening Profile *************************** -->
+	
+	
 	<util:map id="ba_sp_actimize_bcp">
-		<entry key="File Specification">
+		<!-- <entry key="File Specification">
 	    	<util:list>
 			    <value>Actimize_BCP</value>
 			</util:list>
-	    </entry>
+	    </entry> -->
 	    <entry key="Screening Algorithms">
 	    	<util:list>
 			    <value>Accuity Token</value>
@@ -96,11 +247,11 @@
 	    
 	    
 	<util:map id="ba_sp_vessels">
-		<entry key="File Specification">
+		<!-- <entry key="File Specification">
 	    	<util:list>
 			    <value>GlobeVessels</value>
 			</util:list>
-	    </entry>
+	    </entry> -->
 	    <entry key="Screening Algorithms">
 	    	<util:list>
 			    <value>Accuity Token</value>
@@ -149,11 +300,11 @@
 	
 	
 	<util:map id="ba_sp_customers_sanctions_only">
-		<entry key="File Specification">
+		<!-- <entry key="File Specification">
 	    	<util:list>
 			    <value>GlobeClientCRE_Temp</value>
 			</util:list>
-	    </entry>
+	    </entry> -->
 	    <entry key="Screening Algorithms">
 	    	<util:list>
 			    <value>Accuity Token</value>
@@ -236,11 +387,11 @@
 	
 	
 	<util:map id="ba_sp_customers_pep_only">
-		<entry key="File Specification">
+		<!-- <entry key="File Specification">
 	    	<util:list>
 			    <value>GlobeClientCRE_Temp</value>
 			</util:list>
-	    </entry>
+	    </entry> -->
 	    <entry key="Screening Algorithms">
 	    	<util:list>
 			    <value>Accuity Token</value>
@@ -285,11 +436,11 @@
 	
 	
 	<util:map id="ba_sp_customers_bfs_sanctions_only">
-		<entry key="File Specification">
+		<!-- <entry key="File Specification">
 	    	<util:list>
 			    <value>Siebel</value>
 			</util:list>
-	    </entry>
+	    </entry> -->
 	    <entry key="Screening Algorithms">
 	    	<util:list>
 			    <value>Accuity Token</value>
@@ -367,11 +518,11 @@
 	
 	
 	<util:map id="ba_sp_customers_bfs_pep_only">
-		<entry key="File Specification">
+		<!-- <entry key="File Specification">
 	    	<util:list>
 			    <value>Siebel</value>
 			</util:list>
-	    </entry>
+	    </entry> -->
 	    <entry key="Screening Algorithms">
 	    	<util:list>
 			    <value>Accuity Token</value>
@@ -463,11 +614,11 @@
 	
 	
 	<util:map id="ba_sp_customers_edd_only">
-		<entry key="File Specification">
+		<!-- <entry key="File Specification">
 	    	<util:list>
 			    <value>GlobeClientCRE</value>
 			</util:list>
-	    </entry>
+	    </entry> -->
 	    <entry key="Screening Algorithms">
 	    	<util:list>
 			    <value>Accuity Token</value>

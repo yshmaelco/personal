@@ -99,6 +99,7 @@ public class Prp5ResultParseTest extends TestBase {
 		
 		dbCount.put("sybsecurity", 0l);
 		dbCount.put("sybsystemprocs", 0l);		
+		dbCount.put("syb_control", 0l);		
 		dbCount.put("tempdb", 0l);		
 		dbCount.put("master", 0l);
 		dbCount.put("mondb", 0l);

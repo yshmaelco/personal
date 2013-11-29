@@ -1,12 +1,12 @@
-Batch ID:	779291
-User ID:	ActimizePROD
+Batch ID:	795795
+User ID:	CustBFSSancTEST
 Department:	
-Uploaded:	20:30.0
-Screen Date:	21:29.0
-File Specification:	Actimize_BCP
-Original Filename:	CAG_REMUS_BCP_20131104_1045.csv.zip
+Uploaded:	50:30.0
+Screen Date:	55:11.0
+File Specification:	Siebel
+Original Filename:	FSG_Daily_20131127-2300.csv.zip
 Screening Algorithms:	Accuity Token
-Screening Algorithms:	Fuzzy — Threshold (90)
+Screening Algorithms:	Fuzzy — Threshold (95)
 Risk Scorecard:	SC2
 Compliance Link Options:	Use False Positive Reduction Rules: Yes 
 Compliance Link Options:	Use Good File: Yes 
@@ -16,18 +16,20 @@ Screening Options:	Ignore Vessels: Yes 
 Screening Options:	Remove Middle Initial: Yes
 Custom Dictionary:	None
 Character Mapping File:	Special Characters File
-Filter Versions:	Accuity's OFAC List : 20131031143547 
-Filter Versions:	Accuity OFAC Enhancements : 20131029111003 
-Filter Versions:	AU : 20131025152109 
+Filter Versions:	Accuity's OFAC List : 20131126143931 
+Filter Versions:	Accuity OFAC Enhancements : 20131126160658 
+Filter Versions:	311 : 20131126144043 
+Filter Versions:	AU : 20131126160434 
+Filter Versions:	AUSTRIAN CENTRAL BANK : 20111005150831 
 Filter Versions:	Arab League List : 20120130152947 
-Filter Versions:	BELGIUM : 20131023152247 
+Filter Versions:	BELGIUM : 20131120145819 
 Filter Versions:	BISN : 20131030154801 
-Filter Versions:	BofE : 20131105143451 
-Filter Versions:	CANADIAN ECONOMIC SANCTIONED COUNTRIES LIST : 20131023144035 
+Filter Versions:	BofE : 20131127122907 
+Filter Versions:	CANADIAN ECONOMIC SANCTIONED COUNTRIES LIST : 20131126152033 
 Filter Versions:	CANADIAN ECONOMIC UN SANCTIONS LIST : 20131101164533 
-Filter Versions:	CHINESE MINISTRY : 20130215065901 
-Filter Versions:	EU : 20131031141749 
+Filter Versions:	EU : 20131127160551 
 Filter Versions:	European Union Enhancements List : 20131016165816 
+Filter Versions:	FRENCH LIST : 20131120145559 
 Filter Versions:	HK : 20131028153634 
 Filter Versions:	HM Treasury Financial Sanctions Country Regimes : 20120809152949 
 Filter Versions:	HMT Enhancement List : 20131023144136 
@@ -38,14 +40,11 @@ Filter Versions:	New Zealand Police Designated Terrorist List : 20131009154103 
 Filter Versions:	OFAC Part 561 Enhancements List : 20130102145948 
 Filter Versions:	OFAC Part 561 List : 20130517154718 
 Filter Versions:	OFAC Sanctions Country Regimes List : 20121112154714 
-Filter Versions:	OSFI : 20131028154225 
-Filter Versions:	SAUDI ARABIA : 20120104154218 
-Filter Versions:	SECO : 20131105150837 
-Filter Versions:	SGP : 20131025152230 
+Filter Versions:	OSFI : 20131128140437 
+Filter Versions:	SECO : 20131114152947 
+Filter Versions:	SGP : 20131126172910 
 Filter Versions:	Sanctioned Airport and Seaport List : 20130409160455 
-Filter Versions:	Thailand AMLO Counter-Terrorism Financing Act List : 20131030151322 
-Filter Versions:	UK HOME OFFICE : 20130717153538 
-Filter Versions:	UN : 20131025152103 
+Filter Versions:	Thailand AMLO Counter-Terrorism Financing Act List : 20131106151133 
+Filter Versions:	UK HOME OFFICE : 20131113154539 
+Filter Versions:	UN : 20131126172831 
 Filter Versions:	United Nations Enhancements List : 20131023144344 
-Filter Versions:	Vessel Company Enhancements List : 20131030151508 
-Filter Versions:	Vessel Enhancements List : 20131030151558 
